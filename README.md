@@ -1,6 +1,30 @@
 # LD_PRELOAD hooks
  A collection of shared objects that are used as LD_PRELOAD hooks
 
+## LD_PRELOAD Background
+From the man page for `ld.so`:
+
+> LD_PRELOAD  
+>  A list of additional, user-specified, ELF shared objects
+  to be loaded before all others.  This feature can be used
+  to selectively override functions in other shared objects.  
+> There are various methods of specifying libraries to be
+preloaded, and these are handled in the following order:
+>
+> 1. The LD_PRELOAD environment variable.
+> 2. The --preload command-line option when invoking the dynamic linker directly.
+> 3. The /etc/ld.so.preload file (described below).  
+>        File containing a whitespace-separated list of ELF shared
+        objects to be loaded before the program.  See the
+        discussion of LD_PRELOAD above.  If both LD_PRELOAD and
+        /etc/ld.so.preload are employed, the libraries specified
+        by LD_PRELOAD are preloaded first.  /etc/ld.so.preload has
+        a system-wide effect, causing the specified libraries to
+        be preloaded for all programs that are executed on the
+        system.  (This is usually undesirable, and is typically
+        employed only as an emergency remedy, for example, as a
+        temporary workaround to a library misconfiguration issue.)
+
 # sshd_memchar_hook
 The goal of this hook is to read and output OpenSSH passwords
 
